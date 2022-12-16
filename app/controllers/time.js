@@ -3,7 +3,6 @@ export const time = ( req, res ) => {
   const date = new Date();
 
   res.header( "Cache-control", "no-cache" );
-  res.header( "Access-Control-Allow-Origin", "*" );
   res.header( "Authorization", "Basic legran 1234" + Buffer.from( username ).toString( "base64" ) );
 
 

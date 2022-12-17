@@ -5,13 +5,10 @@ import uploadRouter from "./routes/upload.js";
 import timeRouter from "./routes/time.js";
 import pokemonRouter from "./routes/pokemon.js";
 import fileUpload from "express-fileupload";
-import cors from "cors";
 import { error404 } from "./routes/error404.js";
-
 
 const app = express();
 
-app.use( cors() );
 
 app.use( fileUpload() );
 

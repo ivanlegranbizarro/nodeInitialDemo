@@ -6,6 +6,7 @@ import timeRouter from "./routes/time.js";
 import pokemonRouter from "./routes/pokemon.js";
 import fileUpload from "express-fileupload";
 import { error404 } from "./routes/error404.js";
+import cors from "cors";
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use( express.urlencoded( { extended: false } ) );
 
 app.use( '/user', usersRouter );
 app.use( '/upload', uploadRouter );
-app.use( '/time', timeRouter );
+app.use( '/time', cors(), timeRouter );
 app.use( '/pokemon', pokemonRouter );
 
 app.use( error404 );

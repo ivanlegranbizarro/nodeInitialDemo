@@ -11,7 +11,7 @@ const uploadFile = ( req, res ) => {
     }
 
     const file = req.files.myFile;
-    const path = __dirname + "/uploads/" + file.name;
+    const path = __dirname + "/app/uploads/" + file.name;
     if ( file.mimetype === "image/jpeg" || file.mimetype === "image/png" || file.mimetype === "image/gif" ) {
         file.mv( path, ( err ) => {
             if ( err ) {

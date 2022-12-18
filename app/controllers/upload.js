@@ -4,7 +4,10 @@ const __dirname = path.resolve();
 
 const uploadFile = ( req, res ) => {
     if ( !req.files ) {
-        return res.status( 400 ).json( "No files were uploaded." );
+        return res.status( 400 ).json( {
+            status: "error",
+            message: "No file uploaded"
+        } );
     }
 
     const file = req.files.myFile;
@@ -12,12 +15,18 @@ const uploadFile = ( req, res ) => {
     if ( file.mimetype === "image/jpeg" || file.mimetype === "image/png" || file.mimetype === "image/gif" ) {
         file.mv( path, ( err ) => {
             if ( err ) {
-                return res.status( 500 ).json( err );
+                return res.status( 500 ).json( {
+                    status: "error",
+                    message: err
+                } );
             }
             return res.json( { status: "success", path: path } );
         } );
     } else {
-        return res.status( 400 ).json( "File type not supported." );
+        return res.status( 400 ).json( {
+            status: "error",
+            message: "Invalid file format"
+        } );
     }
 };
 

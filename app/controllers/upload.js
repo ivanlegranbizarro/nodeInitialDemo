@@ -14,7 +14,7 @@ const uploadFile = ( req, res ) => {
             if ( err ) {
                 return res.status( 500 ).json( err );
             }
-            return res.send( { status: "success", path: path } );
+            return res.json( { status: "success", path: path } );
         } );
     } else {
         return res.status( 400 ).json( "File type not supported." );

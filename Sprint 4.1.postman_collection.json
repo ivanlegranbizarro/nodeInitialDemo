@@ -56,7 +56,7 @@
 						{
 							"key": "myFile",
 							"type": "file",
-							"src": "/Users/ivanlegranbizarro/Downloads/CARTA BLANCA 1.mp3"
+							"src": ""
 						}
 					]
 				},
@@ -82,12 +82,12 @@
 					"basic": [
 						{
 							"key": "username",
-							"value": "legran",
+							"value": "",
 							"type": "string"
 						},
 						{
 							"key": "password",
-							"value": "1234",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -96,7 +96,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"legran\",\n    \"password\": \"1234\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"

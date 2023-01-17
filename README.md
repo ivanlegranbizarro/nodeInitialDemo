@@ -1,51 +1,14 @@
+## Sprint 4 IT Academy
 
-# Node Initial Project
-
-### Project Structure
-
-Main structure of node.js project. Folders / files:
-
-- <b>\_\_tests__</b>. Tests folder. See [Jest Docs](https://jestjs.io/es-ES/docs/configuration) and [Chai Docs](https://www.chaijs.com/)
-- <b>app</b>:
-    - <b>config</b>
-    - <b>controllers</b>
-    - <b>middlewares</b>
-    - <b>models</b>
-    - <b>routes</b>
-    - <b>helpers</b>
-    - <b>app.js</b>. Entry point.
-- <b>package.json</b>.
-- <b>.env</b>. Environment descriptor. See [dotenv doc](https://www.npmjs.com/package/dotenv).
-
-Extras:
-- <b>.eslintrc</b>. Linter JS, static code analyzer. See [EsLint Docs](https://eslint.org/docs/user-guide/configuring/configuration-files).
-- <b>.prettierignore</b>. Code formatter. See [Prettier Config](https://prettier.io/docs/en/configuration.html) and [Prettier Ignore](https://prettier.io/docs/en/ignore.html).
-- <b>.ecosystem.config.js</b>. Process Manage at runtime. See [PM2 Docs](https://pm2.keymetrics.io/).
-
-### Import project for use with Visual Studio Code
-
-Follow the steps below:
-* Clone the project from the Github Platform. Execute:
-  ```
-  git clone [url project]
-  ```
-* Open the project downloaded.
-  ![Open Project](img/VSC_open.png)
+Sprint dedicat a la familiarització amb el framework Express JS per a Node JS
 
 
-### Import project for use with WebStorm
+### Instal·lar el projecte
 
-Follow the steps below:
-* Clone the project from the Github Platform. Execute:
-  ```
-  git clone [url project]
-  ```
-* Open the project downloaded.
-![Open Project](img/webstorm_open.png)
+Un cop es clona, les úniques ordres que caldrà executar són `npm install`per instal·lar totes les dependencies del projecte i, per executar-lo, `npm start`.
 
+### Avís de l'entrega 4.1:
 
-### Utilities
+Per provar al postman l'endpoint http://localhost:3000/time que retorna l'hora actual i l'username, caldrà activar l' autenticació bàsica de Postman amb l'Username legran i el password 1234.
 
-* [Node Developers Guide](https://nodejs.dev/learn)
-* **.gitignore file** configuration. See [Official Docs](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-* **Git branches**. See [Official Docs](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+També, per provar l'endpoint http://localhost:3000/upload s'haurà de posar a Postman com a key del value de la file 'myFile'.

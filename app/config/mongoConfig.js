@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 mongoose.set( 'strictQuery', false );
 
 const conexion = async () => {
   try {
-    await mongoose.connect( 'mongodb://localhost:27017/jocDaus' );
+    await mongoose.connect( process.env.MONGO_URI );
     console.log( 'Conectado a la base de datos' );
   } catch ( error ) {
     console.log( error );

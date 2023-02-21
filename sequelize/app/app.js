@@ -2,11 +2,11 @@ import express from "express";
 import logger from "morgan";
 import fileUpload from "express-fileupload";
 import dotenv from "dotenv";
-import { dbConnectMysql } from "./config/mysql.js";
 import { error404 } from "./routes/error404.js";
 import usersRouter from "./routes/user.js";
 import rankingRouter from "./routes/ranking.js";
 import gamesRouter from "./routes/games.js";
+import { dbConnectMysql } from "./config/mysql.js";
 
 dotenv.config();
 

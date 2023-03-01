@@ -1,51 +1,41 @@
+# Alocado setup bicéfalo para que Omar pueda corregir el Sprint 4.2
 
-# Node Initial Project
+Este repositorio contiene dos subcarpetas: `sequelize` y `mongoose`, cada una con una versión diferente de la API REST creada con Node.js y Express.js.
 
-### Project Structure
+Para ejecutar la versión con Sequelize, sigue estos pasos:
 
-Main structure of node.js project. Folders / files:
+1. Abre una terminal y navega hasta la raíz del repositorio.
+2. Ejecuta el siguiente comando:
 
-- <b>\_\_tests__</b>. Tests folder. See [Jest Docs](https://jestjs.io/es-ES/docs/configuration) and [Chai Docs](https://www.chaijs.com/)
-- <b>app</b>:
-    - <b>config</b>
-    - <b>controllers</b>
-    - <b>middlewares</b>
-    - <b>models</b>
-    - <b>routes</b>
-    - <b>helpers</b>
-    - <b>app.js</b>. Entry point.
-- <b>package.json</b>.
-- <b>.env</b>. Environment descriptor. See [dotenv doc](https://www.npmjs.com/package/dotenv).
+    npm run sequelize
 
-Extras:
-- <b>.eslintrc</b>. Linter JS, static code analyzer. See [EsLint Docs](https://eslint.org/docs/user-guide/configuring/configuration-files).
-- <b>.prettierignore</b>. Code formatter. See [Prettier Config](https://prettier.io/docs/en/configuration.html) and [Prettier Ignore](https://prettier.io/docs/en/ignore.html).
-- <b>.ecosystem.config.js</b>. Process Manage at runtime. See [PM2 Docs](https://pm2.keymetrics.io/).
+3. Este comando ejecutará el script `"sequelize"` definido en el archivo `package.json`que contiene ambas subcarpetas. Este script primero navegará hasta la subcarpeta `sequelize` con el comando `cd sequelize`, luego instalará las dependencias de esta versión de la API con `npm install`, y finalmente iniciará la API con `npm start`.
 
-### Import project for use with Visual Studio Code
+Para ejecutar la versión con Mongoose, sigue estos pasos:
 
-Follow the steps below:
-* Clone the project from the Github Platform. Execute:
-  ```
-  git clone [url project]
-  ```
-* Open the project downloaded.
-  ![Open Project](img/VSC_open.png)
+1. Abre una terminal y navega hasta la raíz del repositorio.
+2. Ejecuta el siguiente comando:
 
+    npm run mongoose
 
-### Import project for use with WebStorm
+3. Este comando ejecutará el script `"mongoose"` definido en el archivo `package.json`que, como hemos indicado antes, contiene ambas subcarpetas. Este script primero navegará hasta la subcarpeta `mongoose` con el comando `cd mongoose`, luego instalará las dependencias de esta versión de la API con `npm install`, y finalmente iniciará la API con `npm start`.
 
-Follow the steps below:
-* Clone the project from the Github Platform. Execute:
-  ```
-  git clone [url project]
-  ```
-* Open the project downloaded.
-![Open Project](img/webstorm_open.png)
+## Environtment variables
+
+Para que la API funcione correctamente, es necesario definir las variables de entorno que, tanto en la versión con Sequelize como en la versión con Mongoose, se encuentran ejemplificadas en el archivo '.env-template- que se encuentra en la raíz de cada subcarpeta. Para definir las variables de entorno, copia el contenido del archivo `.env-template` en un nuevo archivo llamado `.env` y rellena los valores de las variables.
+
+## Cómo funciona sequelize
+
+La versión de la API con Sequelize se encuentra en la subcarpeta `sequelize`. Esta versión de la API utiliza la librería [Sequelize](https://sequelize.org/) para interactuar con la base de datos. Sequelize es un ORM (Object Relational Mapper) que permite interactuar con una base de datos relacional como si fuera una base de datos no relacional. En este caso, Sequelize interactúa con una base de datos MySQL.
+
+## Cómo funciona mongoose
+
+La versión de la API con Mongoose se encuentra en la subcarpeta `mongoose`. Esta versión de la API utiliza la librería [Mongoose](https://mongoosejs.com/) para interactuar con la base de datos. Mongoose es un ODM (Object Document Mapper) que permite interactuar con una base de datos no relacional como si fuera una base de datos relacional. En este caso, Mongoose interactúa con una base de datos MongoDB.
 
 
-### Utilities
+Los respectivos endpoints de cada API se encuentran en sus respectivos docuemntos README.md
 
-* [Node Developers Guide](https://nodejs.dev/learn)
-* **.gitignore file** configuration. See [Official Docs](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-* **Git branches**. See [Official Docs](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+## Postman
+
+Para probar la API, puedes utilizar el archivo `API REST.postman_collection.json` que se encuentra en la raíz de cada subcarpeta. Este archivo contiene una colección de Postman con las peticiones necesarias para probar la API.
+El token para probar el endpoint '/login' debe añadirse en la pestaña de Authorization de Postman, en el apartado de Type, seleccionando 'Bearer Token' y en el campo de Token, introduciendo el token que se genera al hacer login.

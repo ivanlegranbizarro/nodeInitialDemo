@@ -14,8 +14,11 @@ const app = express();
 
 app.use( fileUpload() );
 
+// Utilizamos la variable de entorno NODE_ENV para saber si estamos en modo de desarrollo o no
+if ( process.env.NODE_ENV === "development" ) {
+  app.use( logger( "dev" ) );
+}
 
-app.use( logger( 'dev' ) );
 app.use( express.json() );
 app.use( express.urlencoded( { extended: false } ) );
 
@@ -25,11 +28,10 @@ app.use( '/games', gamesRouter );
 
 app.use( error404 );
 
-
-
 const PORT = process.env.PORT || 3000;
 
-app.listen( PORT, () => console.log( `Server is running on http://localhost:${ PORT }` ) );
-
+app.listen( PORT, () =>
+  console.log( `Server is running on http://localhost:${ PORT }` )
+);
 
 dbConnectMysql();

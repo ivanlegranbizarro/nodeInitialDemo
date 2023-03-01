@@ -19,7 +19,11 @@ const app = express();
 app.use( fileUpload() );
 
 
-app.use( logger( 'dev' ) );
+// Utilizamos la variable de entorno NODE_ENV para saber si estamos en modo de desarrollo o no
+if ( process.env.NODE_ENV === "development" ) {
+  app.use( logger( "dev" ) );
+}
+
 app.use( express.json() );
 app.use( express.urlencoded( { extended: false } ) );
 

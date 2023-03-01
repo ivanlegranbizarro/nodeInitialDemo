@@ -19,7 +19,7 @@ export const createUser = async ( req, res ) => {
     }
   } catch ( error ) {
     res.status( 500 ).json(
-      console.log( { message: error.message } )
+      { message: error.message }
     );
   }
 };
@@ -37,7 +37,9 @@ export const getUsers = async ( req, res ) => {
         user.percentage = Math.round( percentage * 100 ) / 100;
       }
     }
-    res.status( 200 ).json( usersList );
+    res.status( 200 ).json( {
+      users: usersList
+    } );
   } catch ( error ) {
     res.status( 500 ).json( {
       message: error.message

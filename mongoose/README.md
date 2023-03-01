@@ -5,7 +5,7 @@ Sprint dedicat a la familiarització amb el framework Express JS per a Node JS
 
 ### Instal·lar el projecte
 
-Un cop es clona, les úniques ordres que caldrà executar són `npm install`per instal·lar totes les dependencies del projecte i, per executar-lo, `npm start`.
+Un cop es clona, les úniques ordres que caldrà executar són `npm install`per instal·lar totes les dependències del projecte i, per executar-lo, `npm start`.
 
 ### Descripció de les rutes per l'sprint 4.2
 

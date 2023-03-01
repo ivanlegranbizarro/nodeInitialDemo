@@ -12,29 +12,18 @@ const host = process.env.DATABASE_HOST;
 const connection = mysql.createConnection( {
   host,
   user: username,
-  password
+  password,
 } );
-
-connection.query(
-  `CREATE DATABASE IF NOT EXISTS ${ database };`,
-  ( err, results ) => {
-    if ( err, results ) {
-      console.log( err, results );
-    } else {
-      console.log( "Database created!" );
-    }
-  }
-);
-
 
 const sequelize = new Sequelize( database, username, password, {
   host,
-  dialect: "mysql"
+  dialect: "mysql",
 } );
-
 
 const dbConnectMysql = async () => {
   try {
+    await connection.promise().connect();
+    await connection.promise().query( `CREATE DATABASE IF NOT EXISTS ${ database };` );
     await sequelize.authenticate();
     console.log( "Connection has been established successfully." );
   } catch ( error ) {
@@ -42,11 +31,6 @@ const dbConnectMysql = async () => {
   }
 };
 
+dbConnectMysql();
 
-connection.end();
-
-
-export {
-  sequelize,
-  dbConnectMysql
-};
+export { sequelize, dbConnectMysql };

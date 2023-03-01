@@ -5,19 +5,23 @@ import User from "../models/users.js";
 export const createUser = async ( req, res ) => {
   try {
     const { username } = req.body;
+    let message;
+
     if ( username === "" ) {
       const date = new Date();
-      const username = `Anònim-${ date.getTime() }`;
-      await User.create( { username } );
-      return res.status( 201 ).json( { message: "Player created correctly as 'Anònim' user" } );
-    }
-    const user = await User.findOne( { where: { username } } );
-    if ( user ) {
-      res.status( 409 ).json( { message: "User already exists" } );
+      const anonymousUsername = `Anònim-${ date.getTime() }`;
+      await User.create( { username: anonymousUsername } );
+      message = "Player created correctly as 'Anònim' user";
     } else {
+      const user = await User.findOne( { where: { username } } );
+      if ( user ) {
+        return res.status( 409 ).json( { message: "User already exists" } );
+      }
       await User.create( { username } );
-      res.status( 201 ).json( { message: `Player created correctly with the username of ${ username }` } );
+      message = `Player created correctly with the username of ${ username }`;
     }
+
+    res.status( 201 ).json( { message } );
   } catch ( error ) {
     res.status( 500 ).json( error );
   }
@@ -42,7 +46,6 @@ export const getUsers = async ( req, res ) => {
   }
 };
 
-
 export const updateUser = async ( req, res ) => {
   try {
     const { username } = req.body;
@@ -52,11 +55,9 @@ export const updateUser = async ( req, res ) => {
       return res.status( 404 ).json( { message: "User not found" } );
     }
 
-    await User.updateOne( { username }, { where: { id } } );
+    await User.update( { username }, { where: { id } } );
     res.status( 200 ).json( { message: "Player updated correctly" } );
   } catch ( error ) {
     res.status( 500 ).json( error );
   }
 };
-
-

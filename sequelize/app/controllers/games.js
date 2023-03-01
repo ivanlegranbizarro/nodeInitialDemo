@@ -35,7 +35,7 @@ export const getTiradas = async ( req, res ) => {
   const { id } = req.params;
 
   try {
-    const games = await Game.findOne( { jugadorId: id } );
+    const games = await Game.find( { jugadorId: id } );
 
     res.status( 200 ).json( {
       games
